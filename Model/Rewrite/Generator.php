@@ -18,6 +18,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\UrlRewrite\Model\ResourceModel\UrlRewrite as UrlRewriteResource;
 use Magento\UrlRewrite\Model\UrlRewrite;
 use Magento\UrlRewrite\Model\UrlRewriteFactory;
+use Magento\UrlRewrite\Service\V1\Data\UrlRewrite as UrlRewriteService;
 
 /**
  * Class Generator
@@ -82,10 +83,14 @@ class Generator implements GeneratorInterface
         /** @var UrlRewrite $rewrite */
         $rewrite = $this->urlRewriteFactory->create();
 
+        $fileName = $rewriteDataObject->getFileName();
         $rewrite->setData(RewriteDataInterface::GENERATED_REWRITE_DATA);
-        $rewrite->setStoreId($store->getId());
-        $rewrite->setRequestPath($rewriteDataObject->getFileName());
-        $rewrite->setTargetPath(Index::URL_PATH . Index::FILENAME_PARAM . '/' . $rewriteDataObject->getFileName());
+        $rewrite->setData(UrlRewriteService::STORE_ID, $store->getId());
+        $rewrite->setData(UrlRewriteService::REQUEST_PATH, $fileName);
+        $rewrite->setData(
+            UrlRewriteService::TARGET_PATH,
+            Index::URL_PATH . Index::FILENAME_PARAM . '/' . $fileName
+        );
 
         $this->urlRewriteResource->save($rewrite);
     }

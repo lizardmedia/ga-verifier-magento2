@@ -66,7 +66,7 @@ class Purger implements PurgerInterface
         );
 
         /** @var UrlRewrite $rewrite */
-        foreach ($rewriteCollection as $rewrite) {
+        foreach ($rewriteCollection->getItems() as $rewrite) {
             $this->urlRewriteResource->delete($rewrite);
         }
     }

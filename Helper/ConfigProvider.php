@@ -74,6 +74,7 @@ class ConfigProvider implements ConfigProviderInterface
         $filesArray = Json::decode((string)$encodedFiles, Json::TYPE_ARRAY);
         /** @var RewriteArray $rewriteArray */
         $rewriteArray = $this->rewriteArrayFactory->create();
+
         foreach ($filesArray as $fileData) {
             /** @var RewriteInterface $rewrite */
             $rewrite = $this->rewriteFactory->create();
@@ -81,6 +82,7 @@ class ConfigProvider implements ConfigProviderInterface
             $rewrite->setFileContent($fileData[RewriteInterface::FILECONTENT]);
             $rewriteArray->add($rewrite);
         }
+
         return $rewriteArray;
     }
 }
