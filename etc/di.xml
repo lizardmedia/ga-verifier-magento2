@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Maciej Sławik <maciej.slawik@lizardmedia.pl>
+ * @copyright Copyright (C) 2018 Lizard Media (http://lizardmedia.pl)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--Preference section-->
+    <preference for="LizardMedia\GoogleAnalyticsVerifier\Api\ConfigProviderInterface"
+                type="LizardMedia\GoogleAnalyticsVerifier\Helper\ConfigProvider" />
+
+    <preference for="LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\GeneratorInterface"
+                type="LizardMedia\GoogleAnalyticsVerifier\Model\Rewrite\Generator" />
+
+    <preference for="LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\PurgerInterface"
+                type="LizardMedia\GoogleAnalyticsVerifier\Model\Rewrite\Purger" />
+
+    <preference for="LizardMedia\GoogleAnalyticsVerifier\Api\Data\RewriteInterface"
+                type="LizardMedia\GoogleAnalyticsVerifier\Model\Data\Rewrite" />
+    <!--End of preference section-->
+
+</config>
