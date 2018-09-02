@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace LizardMedia\GoogleAnalyticsVerifier\Helper;
+namespace LizardMedia\GoogleAnalyticsVerifier\Model;
 
 use LizardMedia\GoogleAnalyticsVerifier\Api\ConfigProviderInterface;
 use LizardMedia\GoogleAnalyticsVerifier\Api\Data\RewriteInterface;
@@ -19,7 +19,7 @@ use Zend\Json\Json;
 
 /**
  * Class ConfigProvider
- * @package LizardMedia\GoogleAnalyticsVerifier\Helper
+ * @package LizardMedia\GoogleAnalyticsVerifier\Model
  */
 class ConfigProvider implements ConfigProviderInterface
 {

@@ -77,8 +77,7 @@ class GeneratorTest extends TestCase
     }
 
     /**
-     * @throws \Exception
-     * @throws \Magento\Framework\Exception\AlreadyExistsException
+     * @test
      */
     public function testGenerateVerificationFileRewriteCreatesRewrite()
     {
@@ -95,8 +94,7 @@ class GeneratorTest extends TestCase
     }
 
     /**
-     * @throws \Exception
-     * @throws \Magento\Framework\Exception\AlreadyExistsException
+     * @test
      */
     public function testGenerateVerificationFileRewriteWhenUrlResourceThrowsException()
     {

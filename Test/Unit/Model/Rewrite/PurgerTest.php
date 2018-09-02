@@ -65,7 +65,7 @@ class PurgerTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @test
      */
     public function testPurgeVerificationFileRewrites()
     {
@@ -75,7 +75,7 @@ class PurgerTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @test
      */
     public function testPurgeVerificationFileRewritesWhenThrowsExceptionWhileDelete()
     {

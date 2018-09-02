@@ -8,10 +8,10 @@ declare(strict_types=1);
  * @copyright Copyright (C) 2018 Lizard Media (http://lizardmedia.pl)
  */
 
-namespace LizardMedia\GoogleAnalyticsVerifier\Test\Unit\Helper;
+namespace LizardMedia\GoogleAnalyticsVerifier\Test\Unit\Model;
 
 use PHPUnit_Framework_MockObject_MockObject;
-use LizardMedia\GoogleAnalyticsVerifier\Helper\ConfigProvider;
+use LizardMedia\GoogleAnalyticsVerifier\Model\ConfigProvider;
 use LizardMedia\GoogleAnalyticsVerifier\Model\Data\Rewrite;
 use LizardMedia\GoogleAnalyticsVerifier\Model\Data\RewriteArrayFactory;
 use LizardMedia\GoogleAnalyticsVerifier\Model\Data\RewriteFactory;
@@ -21,7 +21,7 @@ use LizardMedia\GoogleAnalyticsVerifier\Model\Data\RewriteArray;
 
 /**
  * Class ConfigProviderTest
- * @package LizardMedia\GoogleAnalyticsVerifier\Test\Unit\Helper
+ * @package LizardMedia\GoogleAnalyticsVerifier\Test\Unit\Model
  */
 class ConfigProviderTest extends TestCase
 {
@@ -63,6 +63,9 @@ class ConfigProviderTest extends TestCase
         );
     }
 
+    /**
+     * @test
+     */
     public function testGetVerificationCodeIsString()
     {
         $this->scopeConfig->expects($this->once())->method('getValue')
@@ -71,6 +74,9 @@ class ConfigProviderTest extends TestCase
         $this->assertEquals($expected, $this->configProvider->getVerificationCode());
     }
 
+    /**
+     * @test
+     */
     public function testGetVerificationCodeIsNull()
     {
         $this->scopeConfig->expects($this->once())->method('getValue')
@@ -79,6 +85,9 @@ class ConfigProviderTest extends TestCase
         $this->assertEquals($expected, $this->configProvider->getVerificationCode());
     }
 
+    /**
+     * @test
+     */
     public function testGetRewritesDataArray()
     {
         $value = '{"_1533030582256_256":{"file_name":"google800000000","file_content":"dupa1"}}';

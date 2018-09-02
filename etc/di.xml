@@ -9,7 +9,7 @@
 
     <!--Preference section-->
     <preference for="LizardMedia\GoogleAnalyticsVerifier\Api\ConfigProviderInterface"
-                type="LizardMedia\GoogleAnalyticsVerifier\Helper\ConfigProvider" />
+                type="LizardMedia\GoogleAnalyticsVerifier\Model\ConfigProvider" />
 
     <preference for="LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\GeneratorInterface"
                 type="LizardMedia\GoogleAnalyticsVerifier\Model\Rewrite\Generator" />
