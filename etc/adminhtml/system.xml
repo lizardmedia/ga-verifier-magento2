@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Maciej Sławik <maciej.slawik@lizardmedia.pl>
+ * @copyright Copyright (C) 2018 Lizard Media (http://lizardmedia.pl)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="lizardmedia_google_analytics_verifier" translate="label" sortOrder="310">
+            <label>Google Analytics Verifier</label>
+        </tab>
+        <section id="lizardmedia_google_analytics_verifier" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Google Analytics Verifier</label>
+            <tab>lizardmedia_google_analytics_verifier</tab>
+            <resource>LizardMedia_GoogleAnalyticsVerifier::config</resource>
+            <group id="head" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>HTML Head</label>
+                <field id="verification_code" translate="label comment" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Verification Code</label>
+                    <comment>Any number of verification codes can be pasted. Everything will be included in the head tag</comment>
+                </field>
+            </group>
+            <group id="file" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Verification files</label>
+                <field id="files" translate="label comment" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Verification file</label>
+                    <comment>File name indicates the name of the file to put on the server, e.g. putting "google853759739573.html" will make the content available at "/google853759739573.html" and File content is what will be displayed after accessing the URL</comment>
+                    <backend_model>LizardMedia\GoogleAnalyticsVerifier\Model\Config\Backend\VerificationFiles</backend_model>
+                    <frontend_model>LizardMedia\GoogleAnalyticsVerifier\Model\Config\Frontend\VerificationFiles</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
