@@ -61,7 +61,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **Michał Kobierzyński**
 * **Michał Broniszewski**
 
-See also the list of [contributors](https://github.com/maciejslawik/ga-verifier-magento2/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/lizardmedia/ga-verifier-magento2/contributors) who participated in this project.
 
 ## License
 
