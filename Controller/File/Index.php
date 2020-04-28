@@ -15,6 +15,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\Raw;
 use Magento\Framework\Controller\Result\RawFactory;
+use Magento\Framework\Controller\Result\Redirect;
 use Magento\Framework\Controller\ResultFactory;
 
 /**
@@ -53,9 +54,9 @@ class Index extends Action
     }
 
     /**
-     * @return Raw
+     * @return Raw|Redirect
      */
-    public function execute(): Raw
+    public function execute()
     {
         try {
             $verificationFileContent = $this->getVerificationFileContent();
@@ -64,7 +65,8 @@ class Index extends Action
             $result->setContents($verificationFileContent);
             return $result;
         } catch (VerificationFileNotFoundException $e) {
-            $this->messageManager->addError($e->getMessage());
+            $this->messageManager->addErrorMessage($e->getMessage());
+            /** @var Redirect $result */
             $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
             $result->setUrl('/');
             return $result;
@@ -77,13 +79,15 @@ class Index extends Action
      */
     private function getVerificationFileContent(): string
     {
-        $requestedFile = $this->getRequest()->getParam('request_path');
+        $requestedFile = urldecode($this->getRequest()->getParam('request_path'));
         $rewrites = $this->configProvider->getRewritesDataArray();
+
         foreach ($rewrites as $rewrite) {
             if ($requestedFile === $rewrite->getFileName()) {
                 return $rewrite->getFileContent();
             }
         }
+
         throw new VerificationFileNotFoundException(__('Requested verification file was not found'));
     }
 }

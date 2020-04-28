@@ -59,7 +59,7 @@ class GeneratorTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->urlRewrite = $this->getMockBuilder(UrlRewrite::class)
             ->disableOriginalConstructor()->getMock();
@@ -78,8 +78,9 @@ class GeneratorTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testGenerateVerificationFileRewriteCreatesRewrite()
+    public function testGenerateVerificationFileRewriteCreatesRewrite(): void
     {
         $fileName = 'fileName';
         $rewriteMock = $this->getMockBuilder(Rewrite::class)
@@ -95,8 +96,9 @@ class GeneratorTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testGenerateVerificationFileRewriteWhenUrlResourceThrowsException()
+    public function testGenerateVerificationFileRewriteWhenUrlResourceThrowsException(): void
     {
         $fileName = '';
         $rewriteMock = $this->getMockBuilder(Rewrite::class)
@@ -116,8 +118,9 @@ class GeneratorTest extends TestCase
     /**
      * @param string $fileName
      * @param int $storeId
+     * @return void
      */
-    private function runGenerateVerificationFileRewriteMethod(string $fileName, int $storeId)
+    private function runGenerateVerificationFileRewriteMethod(string $fileName, int $storeId): void
     {
         $store = $this->getMockBuilder(StoreInterface::class)->getMock();
         $stores = [$store];

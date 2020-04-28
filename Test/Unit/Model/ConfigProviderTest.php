@@ -48,7 +48,7 @@ class ConfigProviderTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->scopeConfig = $this->getMockBuilder(ScopeConfigInterface::class)->getMock();
         $this->rewriteFactory = $this->getMockBuilder(RewriteFactory::class)
@@ -65,8 +65,9 @@ class ConfigProviderTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testGetVerificationCodeIsString()
+    public function testGetVerificationCodeIsString(): void
     {
         $this->scopeConfig->expects($this->once())->method('getValue')
             ->with(ConfigProvider::XML_PATH_VERIFICATION_CODE)->willReturn('test');
@@ -76,8 +77,9 @@ class ConfigProviderTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testGetVerificationCodeIsNull()
+    public function testGetVerificationCodeIsNull(): void
     {
         $this->scopeConfig->expects($this->once())->method('getValue')
             ->with(ConfigProvider::XML_PATH_VERIFICATION_CODE)->willReturn(null);
@@ -87,8 +89,9 @@ class ConfigProviderTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testGetRewritesDataArray()
+    public function testGetRewritesDataArray(): void
     {
         $value = '{"_1533030582256_256":{"file_name":"google800000000","file_content":"dupa1"}}';
         $this->scopeConfig->expects($this->once())

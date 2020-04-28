@@ -1,11 +1,13 @@
 <?php
 /**
- * File: file.php
+ * File: site_verification.php
  *
  * @author Maciej Sławik <maciej.slawik@lizardmedia.pl>
  * @copyright Copyright (C) 2018 Lizard Media (http://lizardmedia.pl)
  */
 
-/** @var \LizardMedia\GoogleAnalyticsVerifier\Block\SiteVerification $block */
+use LizardMedia\GoogleAnalyticsVerifier\Block\SiteVerification;
+
+/** @var SiteVerification $block */
 
 echo $block->getVerificationCode();
