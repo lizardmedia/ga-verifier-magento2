@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace LizardMedia\GoogleAnalyticsVerifier\Model\Rewrite;
 
+use Exception;
 use LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\PurgerInterface;
 use LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\RewriteDataInterface;
 use LizardMedia\GoogleAnalyticsVerifier\Controller\File\Index;
@@ -47,7 +48,7 @@ class Purger implements PurgerInterface
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function purgeVerificationFileRewrites()
     {

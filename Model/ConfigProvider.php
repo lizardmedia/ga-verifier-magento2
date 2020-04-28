@@ -23,8 +23,15 @@ use Zend\Json\Json;
  */
 class ConfigProvider implements ConfigProviderInterface
 {
-    const XML_PATH_VERIFICATION_CODE = 'lizardmedia_google_analytics_verifier/head/verification_code';
-    const XML_PATH_VERIFICATION_FILES = 'lizardmedia_google_analytics_verifier/file/files';
+    /**
+     * @var string
+     */
+    public const XML_PATH_VERIFICATION_CODE = 'lizardmedia_google_analytics_verifier/head/verification_code';
+
+    /**
+     * @var string
+     */
+    public const XML_PATH_VERIFICATION_FILES = 'lizardmedia_google_analytics_verifier/file/files';
 
     /**
      * @var ScopeConfigInterface

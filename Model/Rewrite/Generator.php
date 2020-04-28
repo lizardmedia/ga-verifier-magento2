@@ -9,10 +9,12 @@ declare(strict_types=1);
 
 namespace LizardMedia\GoogleAnalyticsVerifier\Model\Rewrite;
 
+use Exception;
 use LizardMedia\GoogleAnalyticsVerifier\Api\Data\RewriteInterface;
 use LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\GeneratorInterface;
 use LizardMedia\GoogleAnalyticsVerifier\Api\Rewrite\RewriteDataInterface;
 use LizardMedia\GoogleAnalyticsVerifier\Controller\File\Index;
+use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Store\Api\Data\StoreInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\UrlRewrite\Model\ResourceModel\UrlRewrite as UrlRewriteResource;
@@ -58,9 +60,9 @@ class Generator implements GeneratorInterface
     }
 
     /**
-     * @param RewriteInterface[] ...$rewrites
-     * @throws \Exception
-     * @throws \Magento\Framework\Exception\AlreadyExistsException
+     * @param RewriteInterface ...$rewrites
+     * @throws Exception
+     * @throws AlreadyExistsException
      */
     public function generateVerificationFileRewrite(RewriteInterface ...$rewrites)
     {
@@ -75,8 +77,8 @@ class Generator implements GeneratorInterface
     /**
      * @param StoreInterface $store
      * @param RewriteInterface $rewriteDataObject
-     * @throws \Exception
-     * @throws \Magento\Framework\Exception\AlreadyExistsException
+     * @throws Exception
+     * @throws AlreadyExistsException
      */
     private function generateRewriteForStore(StoreInterface $store, RewriteInterface $rewriteDataObject)
     {
@@ -89,7 +91,7 @@ class Generator implements GeneratorInterface
         $rewrite->setData(UrlRewriteService::REQUEST_PATH, $fileName);
         $rewrite->setData(
             UrlRewriteService::TARGET_PATH,
-            Index::URL_PATH . Index::FILENAME_PARAM . '/' . $fileName
+            Index::URL_PATH . Index::FILENAME_PARAM . '/' . urlencode($fileName)
         );
 
         $this->urlRewriteResource->save($rewrite);

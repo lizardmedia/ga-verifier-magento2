@@ -2,7 +2,7 @@
   "name": "lizardmedia/module-ga-verifier",
   "description": "Magento2 module for adding Google Analytics verification scripts without uploading files to the server",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": [
     "MIT"
   ],
@@ -18,7 +18,8 @@
   ],
   "require": {
     "php": "^7.1.0",
-    "magento/module-url-rewrite": "*"
+    "magento/module-url-rewrite": "*",
+    "zendframework/zend-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": ">=7.0.0"

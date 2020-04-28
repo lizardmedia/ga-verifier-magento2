@@ -49,7 +49,7 @@ class PurgerTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->urlRewriteCollectionFactory = $this->getMockBuilder(UrlRewriteCollectionFactory::class)
             ->disableOriginalConstructor()->getMock();
@@ -66,8 +66,9 @@ class PurgerTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testPurgeVerificationFileRewrites()
+    public function testPurgeVerificationFileRewrites(): void
     {
         $this->setupCollection();
         $this->urlRewriteResource->expects($this->once())->method('delete')->with($this->urlRewrite);
@@ -76,8 +77,9 @@ class PurgerTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
-    public function testPurgeVerificationFileRewritesWhenThrowsExceptionWhileDelete()
+    public function testPurgeVerificationFileRewritesWhenThrowsExceptionWhileDelete(): void
     {
         $this->setupCollection();
         $this->urlRewriteResource->expects($this->once())->method('delete')
@@ -90,7 +92,7 @@ class PurgerTest extends TestCase
     /**
      * @return void
      */
-    private function setupCollection()
+    private function setupCollection(): void
     {
         $rewriteCollection = $this->getMockBuilder(UrlRewriteCollection::class)
             ->disableOriginalConstructor()->getMock();

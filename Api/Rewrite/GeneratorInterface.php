@@ -17,7 +17,7 @@ use LizardMedia\GoogleAnalyticsVerifier\Api\Data\RewriteInterface;
 interface GeneratorInterface
 {
     /**
-     * @param RewriteInterface[] ...$rewrites
+     * @param RewriteInterface ...$rewrites
      * @return void
      */
     public function generateVerificationFileRewrite(RewriteInterface ...$rewrites);
